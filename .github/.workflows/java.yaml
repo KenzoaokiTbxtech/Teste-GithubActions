@@ -1,0 +1,25 @@
+name: Build Java
+
+on: [push]
+
+jobs:
+  build java:
+    runs-os: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@4
+
+      - name: Config
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Compile
+        run:
+          javac -d out src/Main.java
+
+      - name: Run
+        run: |
+          java -cp out Main
