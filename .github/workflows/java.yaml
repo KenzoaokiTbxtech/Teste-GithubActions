@@ -3,12 +3,12 @@ name: Build Java
 on: [push]
 
 jobs:
-  build-java-jobs:
-    runs-os: ubuntu-latest
+  build-java:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
 
       - name: Config
         uses: actions/setup-java@v4
@@ -17,7 +17,8 @@ jobs:
           java-version: '17'
 
       - name: Compile
-        run:
+        run: |
+          mkdir -p out
           javac -d out src/Main.java
 
       - name: Run
