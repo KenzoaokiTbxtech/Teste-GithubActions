@@ -3,7 +3,7 @@ name: Build Java
 on: [push]
 
 jobs:
-  build java:
+  build-java-jobs:
     runs-os: ubuntu-latest
 
     steps:
